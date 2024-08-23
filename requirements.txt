@@ -5,3 +5,4 @@ typing
 passlib
 pymongo
 python-dotenv
+uvicorn
