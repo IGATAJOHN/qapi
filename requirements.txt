@@ -1,0 +1,7 @@
+fastApi
+openai
+pydantic
+typing
+passlib
+pymongo
+python-dotenv
