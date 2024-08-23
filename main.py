@@ -14,8 +14,12 @@ from openai import OpenAI
 app = FastAPI()
 load_dotenv()
 # MongoDB setup
-app.config["MONGO_URI"] = os.getenv("MONGODB_URI")
-client = MongoClient(app.config["MONGO_URI"])
+mongo_uri = os.getenv("MONGODB_URI")
+if not mongo_uri:
+    raise ValueError("No MongoDB URI found in environment variables")
+
+# Initialize MongoDB client
+client = AsyncIOMotorClient(mongo_uri)
 db = client['qapi']
 # MongoDB collections
 users_collection = db.users
