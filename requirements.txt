@@ -1,9 +1,9 @@
-fastApi
 openai
 pydantic
 typing
 passlib
 pymongo
 python-dotenv
-uvicorn
-motor
+fastapi==0.100.0
+uvicorn[standard]==0.23.0
+motor==3.0.0
