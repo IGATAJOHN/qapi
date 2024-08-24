@@ -6,4 +6,4 @@ passlib
 pymongo
 python-dotenv
 uvicorn
-motor==3.0.0
+motor
