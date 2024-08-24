@@ -8,9 +8,9 @@ from passlib.context import CryptContext
 from passlib.hash import bcrypt
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime, timedelta
 import openai
-import uvicorn
 from openai import OpenAI
 app = FastAPI()
 load_dotenv()
@@ -455,6 +455,8 @@ async def get_conversation_history(user_id: str = Depends(get_user_id)):
         return JSONResponse(content={'conversation_history': conversation_history})
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-if __name__=='__main__':
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, log_level="info")
+
     
